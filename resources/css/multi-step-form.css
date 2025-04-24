@@ -1,0 +1,391 @@
+/* Estilos generales para el formulario de múltiples pasos */
+body {
+    font-family: "Tajawal", Arial, sans-serif;
+    /* background-color: #f8f9fa; */
+  }
+
+  .multi-step-container {
+    max-width: 800px;
+    margin: 30px auto;
+    /* background: white; */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .form-header {
+    background: var(--head-add-color);;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .form-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .form-header p {
+    margin: 10px 0 0;
+    opacity: 0.8;
+  }
+
+  /* Barra de progreso */
+  .progress-container {
+    padding: 20px 40px 0;
+  }
+
+  .progress-bar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    counter-reset: step;
+  }
+
+  .progress-bar::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #e0e0e0;
+    z-index: 1;
+  }
+
+  .progress-bar .progress {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    height: 4px;
+    background-color: #3498db;
+    z-index: 1;
+    transition: width 0.3s ease;
+  }
+
+  .step-indicator {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #999;
+  }
+
+  .step-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    border: 3px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .step-text {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .step-indicator.active .step-icon {
+    border-color: #3498db;
+    background-color: #3498db;
+    color: white;
+  }
+
+  .step-indicator.active .step-text {
+    color: #3498db;
+    font-weight: 600;
+  }
+
+  .step-indicator.completed .step-icon {
+    border-color: #2ecc71;
+    background-color: #2ecc71;
+    color: white;
+  }
+
+  /* Contenido del formulario */
+  .form-content {
+    padding: 30px 40px;
+  }
+
+  .step {
+    display: none;
+    animation: fadeIn 0.5s;
+  }
+
+  .step.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .step-title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  .step-title i {
+    margin-left: 10px;
+    color: #3498db;
+  }
+
+  /* Campos del formulario */
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+  }
+
+  .form-control ,.id_academic ,.name_student {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s;
+    background: var(--text_back);
+  }
+
+  .form-control:focus ,.id_academic:focus ,.name_student:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+  }
+
+  .form-control.is-invalid , .id_academic.is-invalid , .name_student.is-invalid {
+    border-color: #e74c3c;
+    background-color: #fff8f8;
+  }
+
+  .form-control.is-valid , .id_academic.is-valid ,.name_student.is-valid {
+    border-color: #2ecc71;
+    background-color: #f8fff8;
+  }
+
+  textarea.form-control,textarea.id_academic ,textarea.name_student  {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  select.form-control,select.id_academic ,select.name_student  {
+    height: auto;
+    padding: 10px 15px;
+  }
+
+  select.form-control[multiple],select.id_academic[multiple],select.name_student[multiple] {
+    min-height: 120px;
+  }
+
+
+  /* Contenedores de elementos */
+  .research-container,
+  .student-container {
+    background: var(--back-color);;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    border: 1px solid #eee;
+    transition: all 0.3s;
+  }
+
+  .research-container:hover,
+  .student-container:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .container-title {
+    font-weight: 600;
+    color: #3498db;
+    margin: 0;
+  }
+
+  /* Botones */
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn i {
+    margin-right: 8px;
+  }
+
+  .btn-primary {
+    background-color: #3498db;
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9;
+  }
+
+  .btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background-color: #7f8c8d;
+  }
+
+  .btn-success {
+    background-color: #2ecc71;
+    color: white;
+  }
+
+  .btn-success:hover {
+    background-color: #27ae60;
+  }
+
+  .btn-add {
+    background-color: #f1f1f1;
+    color: #555;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .btn-add i {
+    margin-right: 8px;
+  }
+
+  .btn-add:hover {
+    background-color: #e0e0e0;
+  }
+
+  .btn-remove {
+    background-color: #f8d7da;
+    color: #721c24;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .btn-remove:hover {
+    background-color: #f5c6cb;
+  }
+
+  /* Confirmación */
+  .confirmation-section {
+    margin-bottom: 25px;
+  }
+
+  .confirmation-section h3 {
+    color: #3498db;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .confirmation-item {
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+
+  .confirmation-item p {
+    margin: 5px 0;
+  }
+
+  /* Alertas */
+  .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+  }
+
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .multi-step-container {
+      margin: 15px;
+    }
+
+    .form-content {
+      padding: 20px;
+    }
+
+    .progress-container {
+      padding: 15px 20px 0;
+    }
+
+    .step-text {
+      display: none;
+    }
+
+    .btn-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+
+  }
