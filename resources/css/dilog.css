@@ -1,0 +1,171 @@
+
+:root {
+    --bg-primary: #f8f9fe;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5ff;
+    --text-primary: #2d3748;
+    --text-secondary: #718096;
+    --accent-primary: #6c5ce7;
+    --accent-secondary: #a29bfe;
+    --accent-tertiary: #81ecec;
+    --border-color: rgba(226, 232, 240, 0.8);
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --success-color: #00b894;
+    --warning-color: #3a66ba;
+    --error-color: #ff7675;
+    --info-color: #74b9ff;
+    --gradient-primary: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    --gradient-secondary: linear-gradient(135deg, #81ecec, #74b9ff);
+    --sidebar-width: 280px;
+    --header-height: 70px;
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-shadow: 0 8px 32px rgba(108, 92, 231, 0.1);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+}
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #60a5fa;
+    --secondary-color: #10b981;
+    --secondary-dark: #059669;
+    --accent-color: #f97316;
+    --dark-color: #1e293b;
+    --light-color: #f8fafc;
+    --gray-color: #64748b;
+    --gray-light: #e2e8f0;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --border-radius: 10px;
+    --box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --bg-color: #ffffff;
+    --text-color: #1e293b;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --footer-bg: linear-gradient(135deg, #1d4ed8, #2563eb);
+    --footer-text: #ffffff;
+    --modal-bg: #ffffff;
+    --input-bg: #f8fafc;
+    --gradient-primary: linear-gradient(135deg, #2563eb, #1d4ed8);
+    --gradient-secondary: linear-gradient(135deg, #10b981, #059669);
+    --gradient-accent: linear-gradient(135deg, #f97316, #ea580c);
+    --card-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+    --button-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+
+
+/* Dialog */
+.secondary-btn {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex
+;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+.primary-btn {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex
+;
+    align-items: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .dialog-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .dialog {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+
+  .dialog-overlay.active .dialog {
+    transform: translateY(0);
+  }
+
+  .dialog-header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .dialog.success .dialog-header {
+    background: var(--success-color);
+    color: white;
+  }
+
+  .dialog.error .dialog-header {
+    background: var(--error-color);
+    color: white;
+  }
+
+  .dialog.warning .dialog-header {
+    background: var(--warning-color);
+    color: white;
+  }
+
+  .close-dialog {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .dialog-content {
+    padding: 20px;
+    color:black;
+  }
+
+  .dialog-footer {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid var(--border-color);
+  }
